@@ -1,0 +1,6 @@
+backend installations-
+npm install express mongoose body-parser cors bcrypt
+ 
+frontend installs-
+npm install react-router-dom
+npm install axios
