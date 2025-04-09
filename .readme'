@@ -1,6 +1,9 @@
 backend installations-
 npm install express mongoose body-parser cors bcrypt
+node server.js
+
  
 frontend installs-
 npm install react-router-dom
 npm install axios
+npm run dev
