@@ -1,0 +1,37 @@
+.job-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.job-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.job-company {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.job-location {
+    font-size: 13px;
+    color: #888;
+}
+
+.apply-btn {
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 14px;
+}

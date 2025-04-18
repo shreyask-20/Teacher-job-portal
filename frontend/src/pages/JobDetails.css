@@ -1,0 +1,50 @@
+.job-details-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* centers the container */
+    padding: 20px;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.apply-btn {
+    margin-left: auto;
+    
+    width: 100px;
+    /* Not too big */
+}
+
+.share-section {
+    background: #00aee3;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.share-box {
+    margin-bottom: 20px;
+}
+
+.social-icons i {
+    font-size: 24px;
+    margin: 0 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.qr-box {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.qr-img {
+    width: 100%;
+    height: auto;
+}
