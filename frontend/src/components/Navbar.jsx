@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaBell, FaUser, FaSearch, FaBriefcase, FaExclamationCircle, FaCheckCircle } from 'react-icons/fa';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { FaBell, FaUser, FaBriefcase, FaExclamationCircle, FaCheckCircle } from 'react-icons/fa';
 
 function Navbar() {
   const [showNotifications, setShowNotifications] = useState(false);
   const navigate = useNavigate();
-  
+
   const notifications = [
     {
       id: 1,
@@ -39,29 +39,66 @@ function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="flex items-center">
+              <NavLink to="/" className="flex items-center">
                 <span className="bg-primary text-white px-3 py-1 rounded-l-md text-xl font-bold">Job</span>
                 <span className="bg-gray-900 text-white px-3 py-1 rounded-r-md text-xl font-bold">Grids</span>
-              </Link>
+              </NavLink>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link to="/" className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-primary">
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `inline-flex items-center px-1 pt-1 border-b-2 ${
+                    isActive
+                      ? 'text-gray-900 border-primary'
+                      : 'text-gray-500 hover:text-gray-900 border-transparent hover:border-gray-300'
+                  }`
+                }
+              >
                 Home
-              </Link>
-              <Link to="/profile" className="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300">
+              </NavLink>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  `inline-flex items-center px-1 pt-1 border-b-2 ${
+                    isActive
+                      ? 'text-gray-900 border-primary'
+                      : 'text-gray-500 hover:text-gray-900 border-transparent hover:border-gray-300'
+                  }`
+                }
+              >
                 Profile
-              </Link>
-              <Link to="/jobs" className="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300">
+              </NavLink>
+              <NavLink
+                to="/jobs"
+                className={({ isActive }) =>
+                  `inline-flex items-center px-1 pt-1 border-b-2 ${
+                    isActive
+                      ? 'text-gray-900 border-primary'
+                      : 'text-gray-500 hover:text-gray-900 border-transparent hover:border-gray-300'
+                  }`
+                }
+              >
                 Job Search
-              </Link>
-              <Link to="/applications" className="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300">
+              </NavLink>
+              <NavLink
+                to="/applications"
+                className={({ isActive }) =>
+                  `inline-flex items-center px-1 pt-1 border-b-2 ${
+                    isActive
+                      ? 'text-gray-900 border-primary'
+                      : 'text-gray-500 hover:text-gray-900 border-transparent hover:border-gray-300'
+                  }`
+                }
+              >
                 Applications
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <button 
+              <button
                 onClick={() => setShowNotifications(!showNotifications)}
                 className="relative"
               >
@@ -112,7 +149,7 @@ function Navbar() {
                 </div>
               )}
             </div>
-            <button 
+            <button
               onClick={() => navigate('/profile')}
               className="h-8 w-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
             >
