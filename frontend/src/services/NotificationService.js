@@ -1,0 +1,1 @@
+export const NotificationBaseURL = "http://localhost:5000/api/notifications";
