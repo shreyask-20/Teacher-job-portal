@@ -5,6 +5,9 @@ import Profile from './components/Profile';
 import JobSearch from './components/JobSearch';
 import Applications from './components/Applications';
 import Footer from './components/Footer';
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+// import Success from "./pages/success";
 import './App.css';
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/jobs" element={<JobSearch />} />
             <Route path="/applications" element={<Applications />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registeruser" element={<Register />} />
+            {/* <Route path="/successuser" element={<Success />} /> */}
           </Routes>
         </main>
         <Footer />
