@@ -4,19 +4,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  margin-bottom: 0px;
 }
 
 body,
 html,
-.register-page {
+.login-page {
   height: 100%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
 }
 
-.register-page {
+.login-page {
   display: flex;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
 }
 
@@ -42,7 +43,7 @@ html,
   object-fit: cover;
 }
 
-/* Slider Controls */
+/* --- SLIDER CONTROLS --- */
 .slider-controls {
   position: absolute;
   bottom: 20px;
@@ -52,6 +53,7 @@ html,
   pointer-events: none;
 }
 
+/* Positioning Arrows */
 .left-arrow,
 .right-arrow {
   position: absolute;
@@ -81,6 +83,7 @@ html,
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Dots centered below arrows */
 .dots-container {
   position: absolute;
   bottom: 0;
@@ -107,9 +110,10 @@ html,
   background-color: #ffffff;
 }
 
-/* Right Column */
+/* Right Column with form */
 .right-column {
   flex: 1;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,46 +128,6 @@ html,
   width: 100%;
   max-width: 540px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.password-wrapper {
-  position: relative;
-}
-
-.password-toggle-icon {
-  position: absolute;
-  right: 15px;
-  top: 40%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: #777;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.password-toggle-icon:hover {
-  color: #646cff;
-}
-
-.logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.logo {
-  width: 220px;
-  height: auto;
-  margin-bottom: -30px;
-  margin-top: -40px;
-}
-
-.logo-fallback {
-  display: none;
-  font-size: 24px;
-  font-weight: 600;
-  color: #646cff;
 }
 
 .form-box h2 {
@@ -199,6 +163,26 @@ form input:focus {
   outline: none;
 }
 
+/* Add styling for the password visibility toggle */
+.password-wrapper {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 15px;
+  top: 40%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #777;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.password-toggle-icon:hover {
+  color: #646cff;
+}
+
 form button {
   width: 100%;
   padding: 14px;
@@ -232,4 +216,26 @@ form button:hover {
 
 .link-text a:hover {
   text-decoration: underline;
+}
+
+/* Logo Styling */
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 220px;
+  height: auto;
+  margin-bottom: -30px;
+  margin-top: -40px;
+}
+
+.logo-fallback {
+  display: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #646cff;
 }

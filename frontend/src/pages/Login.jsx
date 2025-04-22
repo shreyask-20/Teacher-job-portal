@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { register } from "../services/api";
-import "./Register.css";
+import { login } from "../services/api";
+import "./Login.css";
 
 import slide1 from "../assets/slide1.jpg";
 import image2 from "../assets/image2.jpg";
@@ -9,20 +9,13 @@ import image3 from "../assets/image3.jpg";
 import logo from "../assets/logo.png"; // Logo image
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // FontAwesome Icons
 
-function Register() {
-  const [formData, setFormData] = useState({
-    email: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-  });
-
+function Login() {
+  const [formData, setFormData] = useState({ username: "", password: "" });
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-
-  const images = [slide1, image2, image3];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [slide1, image2, image3];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,16 +30,12 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
     try {
-      const response = await register(formData);
+      const response = await login(formData);
       alert(response.data.message);
       navigate("/");
     } catch (err) {
-      alert(err.response?.data?.message || "Error registering user");
+      alert(err.response?.data?.message || "Error logging in");
     }
   };
 
@@ -54,12 +43,8 @@ function Register() {
     setPasswordVisible(!passwordVisible);
   };
 
-  const toggleConfirmPasswordVisibility = () => {
-    setConfirmPasswordVisible(!confirmPasswordVisible);
-  };
-
   return (
-    <div className="register-page">
+    <div className="login-page">
       {/* Left column: image slider */}
       <div className="left-column">
         <div
@@ -109,7 +94,7 @@ function Register() {
         </div>
       </div>
 
-      {/* Right column: form */}
+      {/* Right column: login form */}
       <div className="right-column">
         <div className="form-box">
           {/* Logo Section */}
@@ -126,26 +111,17 @@ function Register() {
             <span className="logo-fallback">YourLogo</span>
           </div>
 
-          <h2>Register</h2>
+          <h2>Login</h2>
           <p className="subtitle">
-            Let’s get started with your 30-day free trial
+            Welcome back! Please log in to your account
           </p>
           <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
             <input
               type="text"
               name="username"
               placeholder="Username"
               value={formData.username}
               onChange={handleChange}
-              required
             />
             <div className="password-wrapper">
               <input
@@ -154,7 +130,6 @@ function Register() {
                 placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
-                required
               />
               <div
                 className="password-toggle-icon"
@@ -163,26 +138,10 @@ function Register() {
                 {passwordVisible ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>
-            <div className="password-wrapper">
-              <input
-                type={confirmPasswordVisible ? "text" : "password"}
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
-              <div
-                className="password-toggle-icon"
-                onClick={toggleConfirmPasswordVisibility}
-              >
-                {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
-              </div>
-            </div>
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
           </form>
           <p className="link-text">
-            Already have an account? <Link to="/">Login here</Link>
+            Don’t have an account? <Link to="/registeruser">Register here</Link>
           </p>
         </div>
       </div>
@@ -190,4 +149,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
