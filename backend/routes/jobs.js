@@ -72,4 +72,20 @@ router.get("/filter", async (req, res) => {
   }
 });
 
+// Get jobs with search and filter
+router.get("/search", async (req, res) => {
+  const { title, location } = req.query;
+  const filter = {};
+
+  if (title) filter.title = new RegExp(title, "i");
+  if (location) filter.location = new RegExp(location, "i");
+
+  try {
+    const jobs = await Job.find(filter).sort({ datePosted: -1 });
+    res.status(200).json(jobs);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching jobs", error: err });
+  }
+});
+
 module.exports = router;
